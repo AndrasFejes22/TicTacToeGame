@@ -38,7 +38,7 @@ public class Main {
                     inputCorrect = false;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Ez nem egy érvényes egész szám!");
+                System.out.println("This is not a valid integer!");
                 inputCorrect = false;
             } finally {
                 scanner.nextLine();
