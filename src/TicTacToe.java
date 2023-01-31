@@ -24,6 +24,8 @@ public class TicTacToe implements ActionListener {
     JButton[] buttons = new JButton[9];
 
     boolean player1_turn;
+    boolean AI_turn = true;
+    boolean AI_steps = true;
 
     public int round = 0;
 
@@ -224,6 +226,7 @@ public class TicTacToe implements ActionListener {
                             player1_turn = false;
 
                             round++;
+                            AI_steps = true;
 
 
 
@@ -282,7 +285,12 @@ public class TicTacToe implements ActionListener {
             System.out.println("AITurn_elso if");
             //check_O_CloseToWin();
             if(!(textfield.getText().equals("X wins")) || !(textfield.getText().equals("O wins"))) {
+                System.out.println("bool AI_steps: "+AI_steps);
                 check_X_CloseToWin();
+                System.out.println("bool AI_steps: "+AI_steps);
+                if(AI_steps) {
+                    check_O_TwoStepsToWin();
+                }
             }
         } else {
             if (/*!TwoXOnTable() &&*/ round == 1) {
@@ -301,8 +309,13 @@ public class TicTacToe implements ActionListener {
                 System.out.println("TEXTFIELD_AI_if: "+textfield.getText());
                 if(!(textfield.getText().equals("X wins")) && !(textfield.getText().equals("O wins"))) {
                     System.out.println("true or false: "+(!(textfield.getText().equals("X wins")) || !(textfield.getText().equals("O wins"))));
+                    //check_X_CloseToWin(); //*melyik legyen előbb??
                     check_O_CloseToWin();
-                    check_X_CloseToWin();
+                    System.out.println("bool AI_steps: "+AI_steps);
+                    if(AI_steps) {
+                        //check_O_CloseToWin();//*melyik legyen előbb??
+                        check_X_CloseToWin();
+                    }
                 }
             }
         }
@@ -417,6 +430,7 @@ public class TicTacToe implements ActionListener {
         } else {
             check_O_TwoStepsToWin();
         }
+        AI_turn = false;
     }
 
     public void check_O_TwoStepsToWin(){
@@ -507,6 +521,7 @@ public class TicTacToe implements ActionListener {
         else if (check(6, 2, "") && (buttons[4].getText().equals("O"))) {
             AIPushButton(6);
         }
+        AI_turn = false;
     }
 
 
@@ -603,6 +618,7 @@ public class TicTacToe implements ActionListener {
         else if (check(6, 2, "X")&& !(buttons[4].getText().equals("O"))) {
             AIPushButton(4);
         }
+        AI_turn = false;
     }
 
     //(check(0, 3, "X") && !(buttons[6].getText().equals("O"))) {//ilyesmi
@@ -613,7 +629,7 @@ public class TicTacToe implements ActionListener {
             buttons[i].setText("O");
             //buttons[i].setEnabled(false);
             player1_turn = true;
-
+            AI_steps = false;
             textfield.setText("X turn");
             System.out.println(i + "BUTTON");
              winCheck();
