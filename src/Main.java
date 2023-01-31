@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         try (Scanner scanner = new Scanner(System.in)){
-            int userProvidedNumber = readInt("Please enter a number! 1: job against machine, 2: two-person game. ", scanner);
+            int userProvidedNumber = readInt("Please enter a number! 1: person against machine, 2: two-person game. ", scanner);
             System.out.println("The number entered by the user: " + userProvidedNumber);
 
             if(userProvidedNumber == 1){
