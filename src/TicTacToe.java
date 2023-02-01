@@ -295,9 +295,7 @@ public class TicTacToe implements ActionListener {
         } else {
             if (/*!TwoXOnTable() &&*/ round == 1) {
                 System.out.println("IDE beleptunk?");
-                // ha valahova a 4 sarokba rakja, akkor középre kell rakni
-
-                if (buttons[0].getText().equals("X") || buttons[6].getText().equals("X") || buttons[2].getText().equals("X") || buttons[8].getText().equals("X")) {
+                if (buttons[4].getText().equals("")) {
                     AIPushButton(4);
                 } else {
                     System.out.println("first else in AITurn");
