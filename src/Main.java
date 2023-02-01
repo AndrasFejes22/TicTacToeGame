@@ -38,7 +38,7 @@ public class Main {
                     inputCorrect = false;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("This is not a valid integer!");
+                System.out.println("\u001b[1;31m" + "This is not a valid integer!"+ "\u001b[0m");
                 inputCorrect = false;
             } finally {
                 scanner.nextLine();

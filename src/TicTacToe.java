@@ -316,6 +316,19 @@ public class TicTacToe implements ActionListener {
                         //check_O_CloseToWin();//*melyik legyen előbb??
                         check_X_CloseToWin();
                     }
+                    if(AI_steps) {
+                        //check_O_CloseToWin();//*melyik legyen előbb??
+                        check_O_TwoStepsToWin();
+                    }if(AI_steps){
+                        for(int i=0;i<9;i++) {
+                            if(buttons[i].getText().equals("")){
+                                AIPushButton(i);
+                                break;
+                            }
+
+                        }
+                    }
+
                 }
             }
         }
@@ -427,9 +440,9 @@ public class TicTacToe implements ActionListener {
         }
         else if (check(6, 2, "O") && !(buttons[4].getText().equals("X"))) {
             AIPushButton(4);
-        } else {
+        }/* else {
             check_O_TwoStepsToWin();
-        }
+        }*/
         AI_turn = false;
     }
 
